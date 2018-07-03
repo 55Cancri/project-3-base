@@ -1,0 +1,72 @@
+  
+
+// .root-class
+  // position: absolute !important
+  // top: 0 !important
+  // left: 0 !important
+  // border: 5px solid red
+  // overflow-x: hidden !important
+  // overflow-y: auto !important
+
+
+.content-class
+  position: absolute !important
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  // position: relative !important
+  // border: 3px solid orange
+  overflow-x: hidden !important
+  overflow-y: scroll !important
+
+// .overlay-class
+//   position: relative
+//   border: 3px solid yellow
+  // overflow-x: hidden !important
+  // overflow-y: scroll !important
+  // overflow: auto
+
+  
+.sidebar
+  height: 100%
+  background-color: $sidebar-black
+
+
+.content
+  display: grid
+  grid-template-rows: repeat(5, 60px) 1fr
+  align-items: center
+  padding-top: 95px
+  box-sizing: border-box
+  height: 100%
+
+  .link
+    display: grid
+    align-items: center
+    padding: 0 20px
+    transition: all .5s
+
+    &:focus
+      outline: none
+
+    &:last-of-type
+      margin-bottom: 25px
+      align-self: end
+
+    // &:hover
+      // background-color: darken($sidebar-black, 5%)
+  
+    .fa-plus, .fa-list, .fa-user, .fa-cog
+      justify-self: center
+
+
+    .icon
+      font-size: 24px
+      color: $white
+      filter: drop-shadow(0 0 3px rgba(255,255,255,0.2))
+      transition: all .2s
+
+      &:hover
+        color: $br-grey
+

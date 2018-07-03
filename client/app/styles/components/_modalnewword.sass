@@ -1,0 +1,80 @@
+
+.new-word-modal_header
+  display: grid
+  grid-template-columns: 1fr 1fr
+  align-items: center
+  margin: 0
+
+  .title
+    margin: 25px 0 0 40px
+    justify-self: start
+    color: lighten($sidebar-black, 10%)
+    font: 600 36px "Roboto Condensed", sans-serif
+
+  .close
+    justify-self: end
+    margin: 0 25px 0 0
+    font-size: 24px
+    color: $subhead-grey
+    transition: .3s all
+
+    &:hover
+      cursor: pointer
+      color: $deny-red
+
+.new-word-modal
+  display: grid
+  grid-template-columns: 1fr
+  padding: 0 25px 25px
+  
+  .input-group
+    display: grid
+    position: relative
+    margin: 10px 15px
+
+    .title
+      justify-self: start
+      margin-bottom: 10px
+      font: 500 21px "Roboto Condensed", sans-serif
+      color: $sidebar-black
+
+    .caption
+      position: absolute
+      left: 10pxem
+      top: 65px
+      color: $subhead-grey
+      font: italic 500 14px monsterrat, sans-serif
+
+    .input
+      height: 40px
+      padding: 15px
+      border: none
+      border-radius: 3px
+      color: lighten($sidebar-black, 10%)
+      background-color: $hover-select-grey
+
+    .textarea
+      height: 120px
+      resize: none
+
+    .submit
+      justify-self: end
+      padding: 10px 50px
+      margin-top: 5px
+      border: none
+      border-radius: 2px
+      color: $white
+      font: 500 18px monsterrat, sans-serif
+      background-color: $create-blue
+      transition: .3s all
+
+      &:hover
+        cursor: pointer
+        background-color: darken($create-blue, 5%)
+        
+
+  .split-data
+    display: grid
+    grid-auto-flow: column
+    grid-template-columns: 1fr 1fr
+    grid-column-gap: 5px
