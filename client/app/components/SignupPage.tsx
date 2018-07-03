@@ -31,7 +31,6 @@ export class SignupPage extends Component<ClassProps, ClassState> {
     fullname: '',
     username: '',
     password: '',
-    cheat: [],
     message: '',
     admin: false,
     errors: {
@@ -41,118 +40,9 @@ export class SignupPage extends Component<ClassProps, ClassState> {
       global: ''
     }
   }
-
-  promiseState = async state =>
-    new Promise(resolve => this.setState(state, resolve))
-
-  // accessibility
-  listenKeyboard = e => {
-    // gta v cheat code
-    const code = ['>', 'a', '>', '<', '>', 'rb', '>', '<', 'a', 'y']
-    const { cheat: command } = this.state
-
-    const checkmark: any = wrong => {
-      if (wrong) return console.clear()
-      else console.log(`%c✓`, `color: springgreen; font-size: 24px`)
-    }
-
-    // check every button on keypress
-    switch (e.keyCode || e.key) {
-      case 37:
-        if (command[2] === '>' || command[6] === '>')
-          this.promiseState(prevState => ({
-            ...prevState,
-            cheat: [...prevState.cheat, '<']
-          }))
-            .then(() => test())
-            .then(() => checkmark())
-        else this.promiseState({ cheat: [] }).then(() => checkmark('wrong'))
-        break
-      case 39:
-        if (
-          command.length === 0 ||
-          command[1] === 'a' ||
-          command[3] === '<' ||
-          command[5] === 'rb'
-        )
-          this.promiseState(prevState => ({
-            ...prevState,
-            cheat: [...prevState.cheat, '>']
-          }))
-            .then(() => test())
-            .then(() => checkmark())
-        else
-          this.promiseState({ cheat: [] })
-            .then(() => test())
-            .then(() => checkmark('wrong'))
-        break
-      case 9:
-      case 'Tab':
-        if (command[4] === '>')
-          this.promiseState(prevState => ({
-            ...prevState,
-            cheat: [...prevState.cheat, 'rb']
-          }))
-            .then(() => test())
-            .then(() => checkmark())
-        else
-          this.promiseState({ cheat: [] })
-            .then(() => test())
-            .then(() => checkmark('wrong'))
-        break
-      case 65:
-      case 'a':
-        if (command[0] === '>' || command[7] === '<')
-          this.promiseState(prevState => ({
-            ...prevState,
-            cheat: [...prevState.cheat, 'a']
-          }))
-            .then(() => test())
-            .then(() => checkmark())
-        else
-          this.promiseState({ cheat: [] })
-            .then(() => test())
-            .then(() => checkmark('wrong'))
-        break
-      case 89:
-      case 'y':
-        if (command[8] === 'a')
-          this.promiseState(prevState => ({
-            ...prevState,
-            cheat: [...prevState.cheat, 'y']
-          }))
-            .then(() => test())
-            .then(() => checkmark())
-        else
-          this.promiseState({ cheat: [] })
-            .then(() => test())
-            .then(() => checkmark('wrong'))
-        break
-      default:
-        this.promiseState({ cheat: [] }).then(() => test())
-    }
-
-    if (this.state.cheat.length > 10) this.promiseState({ cheat: [] })
-    const test = () => {
-      if (this.state.cheat.join(',') === code.join(',')) {
-        this.promiseState({
-          admin: true,
-          message: 'You can now sign in as an admin!'
-        }).then(() => console.log('God Mode: active'))
-        window.removeEventListener('keydown', this.listenKeyboard, true)
-      }
-    }
   }
 
-  componentDidMount() {
-    window.addEventListener('keydown', this.listenKeyboard, true)
-  }
-
-  // prevent memory leaks
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.listenKeyboard, true)
-  }
-
+  // @ts-ignore
   onFieldChange = ({ target }) => {
     const { name, value } = target
     this.setState({
@@ -163,6 +53,7 @@ export class SignupPage extends Component<ClassProps, ClassState> {
   // user: Eric1529523007809 pass: a12345678
 
   // startSignup will also have dispatch with it
+  // @ts-ignore
   onSubmit = e => {
     e.preventDefault()
     const personName = this.state.fullname.split(' ')
