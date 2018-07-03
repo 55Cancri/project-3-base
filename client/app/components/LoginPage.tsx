@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link, RouteComponentProps } from 'react-router-dom'
 import { connect } from 'react-redux'
+import ResetPasswordPage from './ResetPasswordPage'
 import * as awsCognito from 'amazon-cognito-identity-js'
 
 import { startLogin } from '../actions/auth'
@@ -230,6 +231,8 @@ export class LoginPage extends Component<IProps, IState> {
             <Link to="/signup" className="signup-link">
               &nbsp;Signup
             </Link>
+            <br />
+            <Link to="/reset">Forgot password?</Link>
           </div>
         </form>
         <div className="overlay" />

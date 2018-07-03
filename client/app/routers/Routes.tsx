@@ -11,6 +11,7 @@ import PublicRoute from './PublicRoute'
 import SplashPage from '../components/SplashPage'
 import LoginPage from '../components/LoginPage'
 import SignupPage from '../components/SignupPage'
+import ResetPasswordPage from '../components/ResetPasswordPage'
 import DashboardPage from '../components/DashboardPage'
 // import SettingsPage from '../components/SettingsPage'
 // import ProfilePage from '../components/ProfilePage'
@@ -66,6 +67,7 @@ export class Pages extends Component<IProps, IState> {
           <PublicRoute exact path="/" component={SplashPage} />
           <PublicRoute path="/signup" component={SignupPage} />
           <PublicRoute path="/login" component={LoginPage} />
+          <PublicRoute path="/reset" component={ResetPasswordPage} />
           <Sidebar
             sidebar={sidebar}
             open={this.state.sidebarOpen}
